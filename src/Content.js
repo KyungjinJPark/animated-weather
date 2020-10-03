@@ -1,60 +1,77 @@
 import React, { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
+
 import axios from "axios";
+
+import DayDataDisplay from "./DayDataDisplay"
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, CardGroup } from "react-bootstrap";
 
 const WEATHER_API = axios.create({
   baseURL: `https://api.weather.gov/`,
 });
 
 const Content = () => {
-  const [resp, setResp] = useState({});
+  const [usrCoords, setUsrCoords] = useState([false, -1, -1]); //containsValidValues, Latitude, Longitude
+  const [weatherData, setWeatherData] = useState([]);
 
   useEffect(() => {
+    getUserLat(); //async state set
+  }, [])
+
+  useEffect(() => {
+    if (usrCoords[0]) {
+      console.log("GET request sent");
+      WEATHER_API.get(`points/${usrCoords[1]},${usrCoords[2]}`, { params: {} })
+        .then((pointResp) => {
+          let forecastURL = pointResp.data.properties.forecast;
+          console.log(forecastURL);
+          WEATHER_API.get(forecastURL.split(".gov/")[1])
+            .then((forecastResp) => {
+              setWeatherData(forecastResp.data.properties.periods);
+            })
+            .catch((error) => {
+              //TODO: something in case of error
+              console.log(error);
+            });
+        })
+        .catch((error) => {
+          //TODO: something in case of error
+          console.log(error);
+        });
+    }
+  }, [usrCoords[0]]);
+
+  const getUserLat = () => {
     /**
      * Working geolocation in javascript
      * https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
      */
     if ("geolocation" in navigator) {
-      console.log("Available");
-    } else {
-      console.log("Not Available");
-    }
-    let usrLat = 0;
-    let usrLong = 0;
-    navigator.geolocation.getCurrentPosition((pos) => {
-      usrLat = pos.coords.latitude;
-      usrLong = pos.coords.longitude;
-    });
-    WEATHER_API.get(`points/${usrLat},${usrLong}`, {
-      params: {},
-    })
-      .then((response) => {
-        let forecastURL = response.data.properties.forecast;
-        WEATHER_API.get(forecastURL.split(".gov/")[1])
-          .then((response) => {
-            setResp(response.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.log(error);
+      navigator.geolocation.getCurrentPosition((pos) => {
+        console.log("USER data");
+        setUsrCoords([true, pos.coords.latitude, pos.coords.longitude]);
+        console.log("async fulfilled");
+      }, (err) => {
+        //TODO: something in case of error
+        console.log("location services not available");
       });
-  }, []);
+    } else {
+      console.log("DEFAULT data");
+      // default location: Washington, DC
+      setUsrCoords([true, 38.8892, -77.0506]);
+    }
+  }
 
   return (
     <>
       <Container>
-        {/* <code>{resp.toString()}</code> */}
-        {Object.entries(resp).map(([key, value]) => (
-          <code>
-            {key}: {value.toString()} <br />
-          </code>
-        ))}
-        <h1 style={{ textShadow: "0px 0px 30px #000" }}>Sunny</h1>
-        <h2>62&deg;F / 73 &deg;F</h2>
+        {weatherData[0] && <DayDataDisplay dayData={weatherData[0]} />}
+        <CardGroup>
+          {weatherData.slice(1, 7).map((periodData) => {
+            return <DayDataDisplay dayData={periodData} />
+          })}
+        </CardGroup>
       </Container>
     </>
   );
