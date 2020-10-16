@@ -1,5 +1,13 @@
 .main-wrapper {
-  border: 1px dashed orange;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding-top: 3em;
 }
 
 .main-title {
