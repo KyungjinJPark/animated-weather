@@ -1,0 +1,9 @@
+html {
+  font-size: 100%;
+}
+
+#main {
+  height: 100vh;
+  background-color: #54416d;
+  color: #fff;
+}

@@ -1,0 +1,31 @@
+.main-wrapper {}
+
+.main-title {
+  font-size: 3em;
+  font-weight: 500;
+  line-height: 1em;
+  padding: 0;
+  margin: 0.5em 0 0 0;
+}
+
+.main-temperature {
+  font-size: 8em;
+  font-weight: 500;
+  line-height: 1em;
+  padding: 0;
+  margin: 0 0 0.1em 0;
+}
+
+.main-description {
+  font-size: 1.5em;
+  line-height: 1em;
+  padding: 0;
+  margin: 0 0 0.05em 0;
+}
+
+.main-wind-speed {
+  font-size: 1.5em;
+  line-height: 1em;
+  padding: 0;
+  margin: 0;
+}
