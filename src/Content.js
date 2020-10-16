@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 
-import DayDataDisplay from "./DayDataDisplay"
+import MainDisplay from "./MainDisplay"
+import WeekDisplay from "./WeekDisplay"
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, CardGroup } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 const WEATHER_API = axios.create({
   baseURL: `https://api.weather.gov/`,
@@ -66,12 +67,10 @@ const Content = () => {
   return (
     <>
       <Container>
-        {weatherData[0] && <DayDataDisplay dayData={weatherData[0]} />}
-        <CardGroup>
-          {weatherData.slice(1, 7).map((periodData) => {
-            return <DayDataDisplay dayData={periodData} />
-          })}
-        </CardGroup>
+        <Row style={{ padding: "2em 0 0 0" }}>
+          <Col xs={7}>{weatherData[0] && <MainDisplay dayData={weatherData[0]} />}</Col>
+          <Col>{weatherData[0] && <WeekDisplay weekData={weatherData.slice(1, 7)} />}</Col>
+        </Row>
       </Container>
     </>
   );

@@ -1,4 +1,14 @@
-API documentation : https://www.weather.gov/documentation/services-web-api
-example request : https://api.weather.gov/gridpoints/LWX/76,64/forecast
+API documentation :
+https://www.weather.gov/documentation/services-web-api
+https://weather-gov.github.io/api/general-faqs
+
+example request : 
+https://api.weather.gov/points/38.8894,-77.0352
+https://api.weather.gov/gridpoints/LWX/76,64/forecast
+https://api.weather.gov/gridpoints/LWX/96,70/forecast/hourly
+
+geolocation : https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
+
+colors : https://www.color-hex.com/color-palette/54458
 
 react bootstrap : https://react-bootstrap.github.io/components/cards/
