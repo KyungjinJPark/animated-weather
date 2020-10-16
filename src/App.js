@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./App.css";
-import Content from "./Content.jsx";
+import Content from "./Content.js";
 
 const App = () => {
   return (
