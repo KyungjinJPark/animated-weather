@@ -65,7 +65,7 @@ const Content = () => {
 
   return (
     <>
-      <Container style={{ padding: "2em 0" }}>
+      <Container style={{ height: "100%", padding: "2em 0" }}>
         {weatherData[0] && <MainDisplay dayData={weatherData[0]} />}
       </Container>
     </>
