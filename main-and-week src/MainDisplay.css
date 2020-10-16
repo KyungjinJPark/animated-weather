@@ -1,4 +1,6 @@
-.main-wrapper {}
+.main-wrapper {
+  border: 1px dashed orange;
+}
 
 .main-title {
   font-size: 3em;
