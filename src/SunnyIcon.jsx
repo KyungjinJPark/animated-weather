@@ -2,14 +2,15 @@ import React from "react";
 
 const sunSize = 15
 
-const SunnyIcon = () => {
+const SunnyIcon = ({ x }) => {
   return <div style={{
-    width: sunSize + "em",
+    width: sunSize * x + "em",
     height: sunSize + "em",
     backgroundColor: "yellow",
     borderRadius: "50%",
+    opacity: x,
   }}>
-  </div>
+  </div >
 }
 
 export default SunnyIcon;

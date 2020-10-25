@@ -5,7 +5,7 @@ import axios from "axios";
 import MainDisplay from "./MainDisplay"
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 const WEATHER_API = axios.create({
   baseURL: `https://api.weather.gov/`,
