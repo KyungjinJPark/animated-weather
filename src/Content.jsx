@@ -63,10 +63,16 @@ const Content = () => {
     }
   }
 
+  const [mainDisplayActive, togglemainDisplay] = useState(true);
+  const hideMainDisplay = () => {
+    togglemainDisplay(!mainDisplayActive);
+  }
+
   return (
     <>
       <Container style={{ height: "100%", padding: "2em 0" }}>
-        {weatherData[0] && <MainDisplay dayData={weatherData[0]} />}
+        {(weatherData[0] && mainDisplayActive) && <MainDisplay dayData={weatherData[0]} />}
+        <button onClick={hideMainDisplay}>{mainDisplayActive ? "hide" : "show"} pls</button>
       </Container>
     </>
   );

@@ -8,7 +8,7 @@ import { useSpring, animated, interpolate } from "react-spring";
 const MainDisplay = ({ dayData }) => {
   const { x } = useSpring({ x: 1, from: { x: 0 } });
 
-  const [active, toggle] = useState(false);
+  const [active, toggle] = useState(true);
   // const temperatureProps = useSpring({
   //   from: {
   //     color: "black",
@@ -20,6 +20,7 @@ const MainDisplay = ({ dayData }) => {
   //   }
   // });
   const temperatureProps = useSpring({
+    config: { duration: 750 },
     color: active ? "white" : "black",
     x: active ? 1 : 0,
   });
