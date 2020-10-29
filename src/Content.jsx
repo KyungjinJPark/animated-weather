@@ -7,6 +7,8 @@ import MainDisplay from "./MainDisplay"
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
 
+import { useTransition, animated } from "react-spring";
+
 const WEATHER_API = axios.create({
   baseURL: `https://api.weather.gov/`,
 });
@@ -64,15 +66,19 @@ const Content = () => {
   }
 
   const [mainDisplayActive, togglemainDisplay] = useState(true);
-  const hideMainDisplay = () => {
-    togglemainDisplay(!mainDisplayActive);
-  }
+  const MainDisplayTransition = useTransition(mainDisplayActive, null, {
+    from: { opacity: 0, transform: "scale(1.1) translate3d(0,-40px,0)" },
+    enter: { opacity: 1, transform: "scale(1) translate3d(0,0,0)" },
+    leave: { opacity: 0, transform: "scale(0.9) translate3d(0,40px,0)" },
+  })
 
   return (
     <>
       <Container style={{ height: "100%", padding: "2em 0" }}>
-        {(weatherData[0] && mainDisplayActive) && <MainDisplay dayData={weatherData[0]} />}
-        <button onClick={hideMainDisplay}>{mainDisplayActive ? "hide" : "show"} pls</button>
+        {MainDisplayTransition.map(({ item, key, props }) =>
+          item && weatherData[0] && <MainDisplay key={key} animStyle={props} dayData={weatherData[0]} />
+        )}
+        <button onClick={() => togglemainDisplay(a => !a)}>{mainDisplayActive ? "hide" : "show"} pls</button>
       </Container>
     </>
   );
