@@ -50,8 +50,10 @@ const MainDisplay = ({ dayData, inc, dec }) => {
 }
 
 const WeekDisplay = ({ weekData, index }) => {
+  if (index < 2) index = 2;
+  if (index > weekData.length - 3) index = weekData.length - 3;
   return <Row className="week-wrapper">
-    {weekData.slice(0, 5).map((periodData) => {
+    {weekData.slice(index - 2, index + 3).map((periodData) => {
       return <>
         <PeriodDisplay periodData={periodData} /><br />
       </>
