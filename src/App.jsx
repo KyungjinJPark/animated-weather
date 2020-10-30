@@ -1,12 +1,12 @@
 import React from "react";
 
-import "./App.css";
-import Content from "./Content.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import ContentLoader from "./ContentLoader";
 
 const App = () => {
   return (
     <div id="main">
-      <Content />
+      <ContentLoader />
     </div>
   );
 };

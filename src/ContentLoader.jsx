@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 
-import MainDisplay from "./MainDisplay"
-import WeekDisplay from "./WeekDisplay"
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
+import Dashboard from "./Dashboard";
 
 const WEATHER_API = axios.create({
   baseURL: `https://api.weather.gov/`,
@@ -64,16 +60,13 @@ const Content = () => {
     }
   }
 
-  return (
-    <>
-      <Container>
-        <Row style={{ padding: "2em 0 0 0" }}>
-          <Col xs={7}>{weatherData[0] && <MainDisplay dayData={weatherData[0]} />}</Col>
-          <Col>{weatherData[0] && <WeekDisplay weekData={weatherData.slice(1, 7)} />}</Col>
-        </Row>
-      </Container>
-    </>
-  );
-};
+  return weatherData[0] ? <Dashboard weatherData={weatherData} /> : <Loading />;
+}
 
 export default Content;
+
+const Loading = () => {
+  return <>
+    Loading...
+  </>
+}
