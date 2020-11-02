@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import axios from "axios";
 
 import Dashboard from "./Dashboard";
@@ -60,13 +59,9 @@ const Content = () => {
     }
   }
 
-  return weatherData[0] ? <Dashboard weatherData={weatherData} /> : <Loading />;
+  return <div id="main">{weatherData[0] ? <Dashboard weatherData={weatherData} /> : <Loading />}</div>
 }
 
 export default Content;
 
-const Loading = () => {
-  return <>
-    Loading...
-  </>
-}
+const Loading = () => <>"Loading..."</>;
