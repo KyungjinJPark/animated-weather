@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useTransition, animated } from "react-spring";
+import { useSpring, useTransition, animated } from "react-spring";
 
 import "./stylesheet.css";
 
 const Dashboard = ({ weatherData }) => {
-  const [index, setI] = useState(0);
+  const [index, setIndex] = useState(0);
   const incIndex = (inc) => {
-    setI(old => {
+    setIndex(old => {
       if (0 <= old + inc && old + inc < Object.keys(weatherData).length) {
         old += inc;
       }
@@ -26,17 +26,15 @@ const Dashboard = ({ weatherData }) => {
     height: "100%",
     overflow: "hidden",
   }}>
-    {
-      mainTransitions.map(({ item, props, key }) =>
-        <MainDisplay
-          key={key}
-          passStyle={props}
-          dayData={item}
-          inc={() => incIndex(1)}
-          dec={() => incIndex(-1)}
-        />)
-    }
-    < WeekDisplay weekData={weatherData.slice(0)} index={index} />
+    {mainTransitions.map(({ item, props, key }) =>
+      <MainDisplay
+        key={key}
+        passStyle={props}
+        dayData={item}
+        inc={() => incIndex(1)}
+        dec={() => incIndex(-1)}
+      />)}
+    < WeekDisplay weekData={weatherData.slice(0)} index={index} setIndex={setIndex} />
   </Container >
 }
 
@@ -46,7 +44,7 @@ const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
   const AnimatedRow = animated(Row);
 
   return <AnimatedRow className="upper-display" style={passStyle}>
-    <Col xs={2} className="change-button" onClick={dec}>
+    <Col xs={2} className="change-button clickable" onClick={dec}>
       <p>left</p>
       <p>{"<<<"}</p>
     </Col>
@@ -63,14 +61,14 @@ const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
       <p className="main-description">{dayData.shortForecast}</p>
       <p className="main-wind-speed">{dayData.windSpeed + " winds"}</p>
     </Col>
-    <Col xs={2} className="change-button" onClick={inc}>
+    <Col xs={2} className="change-button clickable" onClick={inc}>
       <p>right</p>
       <p>{">>>"}</p>
     </Col>
   </AnimatedRow >
 }
 
-const WeekDisplay = ({ weekData, index }) => {
+const WeekDisplay = ({ weekData, index, setIndex }) => {
   if (index < 2) {
     index = 2;
   }
@@ -78,17 +76,16 @@ const WeekDisplay = ({ weekData, index }) => {
     index = weekData.length - 3;
   }
 
-
-  return <Row className="week-wrapper">
+  return <div className="week-wrapper">
     {weekData.map((periodData, i) =>
-      <PeriodDisplay key={i} periodData={periodData} />
+      <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} />
     )}
-  </Row>
+  </div>
 }
 
-const PeriodDisplay = ({ periodData }) => {
-  return <Col className="period-wrapper" xs={3}>
+const PeriodDisplay = ({ periodData, index, setIndex }) => {
+  return <div className="period-wrapper clickable" onClick={() => setIndex(index)}>
     <p className="period-title">{periodData.name.toUpperCase()}</p>
     <p className="period-temperature">{periodData.temperature}&deg;{periodData.temperatureUnit}</p>
-  </Col>
+  </div>
 }

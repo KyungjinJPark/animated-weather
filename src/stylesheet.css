@@ -16,7 +16,7 @@ html {
   top: 2em;
   
   /* debug */
-  border: 2px dashed purple
+  border: 2px dashed orange;
 }
 
 .change-button {
@@ -26,7 +26,7 @@ html {
   align-items: center;
   
   /* debug */
-  border: 2px dashed orange
+  border: 2px dashed purple;
 }
 
 .main-wrapper {
@@ -36,7 +36,7 @@ html {
   text-align: center;
 
   /* debug */
-  border: 2px dashed red
+  border: 2px dashed red;
 }
 
 .main-title {
@@ -73,16 +73,24 @@ html {
 .week-wrapper {
   position: absolute;
   width: 100%;
-  top: 65%;
+  top: 75%;
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: auto;
+  margin: 0 -15px;
+
   
   /* debug */
-  border: 2px dashed purple
+  border: 2px dashed orange;
 }
 
 .period-wrapper {
+  min-width: 20%;
+  max-width: 20%;
+  padding: 0.1em 1em;
 
   /* debug */
-  border: 2px dashed red
+  border: 2px dashed red;
 }
 
 .period-title {
@@ -98,4 +106,9 @@ html {
   line-height: 1em;
   padding: 0;
   margin: 0 0 0.1em 0;
+}
+
+
+.clickable:hover {
+  cursor: pointer;
 }
