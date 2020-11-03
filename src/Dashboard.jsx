@@ -30,8 +30,8 @@ const Dashboard = ({ weatherData }) => {
       mainTransitions.map(({ item, props, key }) =>
         <MainDisplay
           key={key}
-          dayData={item}
           passStyle={props}
+          dayData={item}
           inc={() => incIndex(1)}
           dec={() => incIndex(-1)}
         />)
@@ -42,7 +42,7 @@ const Dashboard = ({ weatherData }) => {
 
 export default Dashboard;
 
-const MainDisplay = ({ dayData, passStyle, inc, dec }) => {
+const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
   const AnimatedRow = animated(Row);
 
   return <AnimatedRow className="upper-display" style={passStyle}>
@@ -71,19 +71,23 @@ const MainDisplay = ({ dayData, passStyle, inc, dec }) => {
 }
 
 const WeekDisplay = ({ weekData, index }) => {
-  if (index < 2) index = 2;
-  if (index > weekData.length - 3) index = weekData.length - 3;
+  if (index < 2) {
+    index = 2;
+  }
+  else if (index > weekData.length - 3) {
+    index = weekData.length - 3;
+  }
+
+
   return <Row className="week-wrapper">
-    {weekData.slice(index - 2, index + 3).map((periodData) => {
-      return <>
-        <PeriodDisplay periodData={periodData} /><br />
-      </>
-    })}
+    {weekData.map((periodData, i) =>
+      <PeriodDisplay key={i} periodData={periodData} />
+    )}
   </Row>
 }
 
 const PeriodDisplay = ({ periodData }) => {
-  return <Col className="period-wrapper">
+  return <Col className="period-wrapper" xs={3}>
     <p className="period-title">{periodData.name.toUpperCase()}</p>
     <p className="period-temperature">{periodData.temperature}&deg;{periodData.temperatureUnit}</p>
   </Col>

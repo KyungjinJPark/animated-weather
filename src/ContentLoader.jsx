@@ -1,3 +1,4 @@
+import ReactDOM from "react-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -7,7 +8,7 @@ const WEATHER_API = axios.create({
   baseURL: `https://api.weather.gov/`,
 });
 
-const Content = () => {
+const ContentLoader = () => {
   const [usrCoords, setUsrCoords] = useState([false, -1, -1]); //containsValidValues, Latitude, Longitude
   const [weatherData, setWeatherData] = useState([]);
 
@@ -62,6 +63,6 @@ const Content = () => {
   return <div id="main">{weatherData[0] ? <Dashboard weatherData={weatherData} /> : <Loading />}</div>
 }
 
-export default Content;
+export default ContentLoader;
 
 const Loading = () => <>"Loading..."</>;
