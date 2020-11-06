@@ -12,7 +12,7 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
   }
 
   return <Row className="lower-display">
-    <ScrollContainer className="week-wrapper" hideScrollbars="false">
+    <ScrollContainer className="week-wrapper" hideScrollbars={false}>
       {weekData.map((periodData, i) =>
         <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} />
       )}
@@ -23,7 +23,7 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
 const PeriodDisplay = ({ periodData, index, setIndex }) => {
   const [pressed, setPressed] = useState(false);
   const buttonProps = useSpring({
-    transform: pressed ? "scale(0.9)" : "scale(1)",
+    transform: pressed ? "scale(0.95)" : "scale(1)",
     config: {
       mass: 0.25,
       tension: 500,

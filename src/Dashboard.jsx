@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useTransition, animated } from "react-spring";
 
@@ -6,8 +6,16 @@ import "./stylesheet.css";
 import MainDisplay from "./MainDisplay";
 import WeekDisplay from "./WeekDisplay";
 
-const Dashboard = ({ weatherData }) => {
+const Dashboard = ({ weatherData, setTheme }) => {
   const [index, setIndex] = useState(0);
+  useEffect(() => {
+    if (weatherData[index].name.toLowerCase().includes("night")) {
+      setTheme("night");
+    }
+    else {
+      setTheme("day");
+    }
+  }, [index]);
   const incIndex = (inc) => {
     setIndex(old => {
       if (0 <= old + inc && old + inc < Object.keys(weatherData).length) {
@@ -41,4 +49,3 @@ const Dashboard = ({ weatherData }) => {
 }
 
 export default Dashboard;
-

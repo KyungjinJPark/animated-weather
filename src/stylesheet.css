@@ -4,8 +4,6 @@ html {
 
 #main {
   height: 100vh;
-  background-color: #000000;
-  color: #fff;
   overflow: hidden;
 }
 
@@ -135,5 +133,4 @@ html {
 
 .clickable:hover {
   cursor: pointer;
-  background-color: #333;
 }
