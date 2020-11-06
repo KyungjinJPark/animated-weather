@@ -107,6 +107,7 @@ html {
   background: red;
 }
 
+
 .period-wrapper {
   min-width: 20%;
   max-width: 20%;
@@ -115,7 +116,6 @@ html {
   /* debug */
   border: 2px dashed red;
 }
-
 
 .period-title {
   font-size: 1.5em;
