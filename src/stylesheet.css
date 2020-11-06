@@ -13,7 +13,7 @@ html {
 .upper-display {
   position: absolute;
   width: 100%;
-  top: 2em;
+  top: 10%;
   
   /* debug */
   border: 2px dashed orange;
@@ -70,28 +70,52 @@ html {
 }
 
 
-.week-wrapper {
+.lower-display {
   position: absolute;
   width: 100%;
   top: 75%;
+
+  /* debug */
+  border: 2px dashed orange;
+}
+
+.week-wrapper {
   display: flex;
   flex-flow: row nowrap;
   overflow: auto;
-  margin: 0 -15px;
+  padding: 0.2em 0;
 
-  
   /* debug */
-  border: 2px dashed orange;
+  border: 2px dashed purple;
+}
+
+.week-wrapper::-webkit-scrollbar {
+  height: 0.4em;
+}
+
+.week-wrapper::-webkit-scrollbar-track {
+  background: orange;
+}
+
+/* Handle */
+.week-wrapper::-webkit-scrollbar-thumb {
+  background: purple;
+}
+
+/* Handle on hover */
+.week-wrapper::-webkit-scrollbar-thumb:hover {
+  background: red;
 }
 
 .period-wrapper {
   min-width: 20%;
   max-width: 20%;
-  padding: 0.1em 1em;
+  padding: 0.2em 1em;
 
   /* debug */
   border: 2px dashed red;
 }
+
 
 .period-title {
   font-size: 1.5em;
@@ -111,4 +135,5 @@ html {
 
 .clickable:hover {
   cursor: pointer;
+  background-color: #333;
 }

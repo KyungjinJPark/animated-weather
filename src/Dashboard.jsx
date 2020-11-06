@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useSpring, useTransition, animated } from "react-spring";
+import { useTransition, animated } from "react-spring";
 
 import "./stylesheet.css";
+import WeekDisplay from "./WeekDisplay"
 
 const Dashboard = ({ weatherData }) => {
   const [index, setIndex] = useState(0);
@@ -66,26 +67,4 @@ const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
       <p>{">>>"}</p>
     </Col>
   </AnimatedRow >
-}
-
-const WeekDisplay = ({ weekData, index, setIndex }) => {
-  if (index < 2) {
-    index = 2;
-  }
-  else if (index > weekData.length - 3) {
-    index = weekData.length - 3;
-  }
-
-  return <div className="week-wrapper">
-    {weekData.map((periodData, i) =>
-      <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} />
-    )}
-  </div>
-}
-
-const PeriodDisplay = ({ periodData, index, setIndex }) => {
-  return <div className="period-wrapper clickable" onClick={() => setIndex(index)}>
-    <p className="period-title">{periodData.name.toUpperCase()}</p>
-    <p className="period-temperature">{periodData.temperature}&deg;{periodData.temperatureUnit}</p>
-  </div>
 }
