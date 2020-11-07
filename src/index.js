@@ -7,6 +7,6 @@ import ContentLoader from "./ContentLoader";
 ReactDOM.render(
   <React.StrictMode>
     <ContentLoader />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
+  , document.getElementById("root")
 );

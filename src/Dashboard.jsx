@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { useTransition, animated } from "react-spring";
+import { useTransition } from "react-spring";
 
 import "./stylesheet.css";
 import MainDisplay from "./MainDisplay";
@@ -31,21 +30,17 @@ const Dashboard = ({ weatherData, setTheme }) => {
     leave: { opacity: 0, transform: "scale(0.9)" }
   });
 
-  return <Container style={{
-    position: "relative",
-    height: "100%",
-    overflow: "hidden",
-  }}>
+  return <div className="dashboard">
     {mainTransitions.map(({ item, props, key }) =>
       <MainDisplay
-        key={key}
+        // key={key}
         passStyle={props}
         dayData={item}
         inc={() => incIndex(1)}
         dec={() => incIndex(-1)}
       />)}
-    < WeekDisplay weekData={weatherData.slice(0)} index={index} setIndex={setIndex} />
-  </Container >
+    <WeekDisplay weekData={weatherData.slice(0)} index={index} setIndex={setIndex} />
+  </div>
 }
 
 export default Dashboard;

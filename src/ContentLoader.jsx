@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Container } from "react-bootstrap";
 import { ThemeProvider } from "styled-components";
 import { dayTheme, nightTheme } from "./theme/themes";
 import { GlobalStyles } from "./theme/global"
@@ -64,21 +65,23 @@ const ContentLoader = () => {
 
   // https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
   const [theme, setTheme] = useState("day");
-  // const toggleTheme = () => {
-  //   if (theme == "day") {
-  //     setTheme("night");
-  //   }
-  //   else {
-  //     setTheme("day");
-  //   }
-  // }
 
   return (
     <ThemeProvider theme={theme == "day" ? dayTheme : nightTheme}>
       <>
         <GlobalStyles />
         {/* <button onClick={toggleTheme}>Toggle Theme</button> */}
-        <div id="main">{weatherData[0] ? <Dashboard weatherData={weatherData} setTheme={setTheme} /> : <Loading />}</div>
+        <div id="main">
+          {weatherData[0]
+            ? <Container style={{
+              position: "relative",
+              height: "100%",
+              overflow: "hidden",
+            }}>
+              <Dashboard weatherData={weatherData} setTheme={setTheme} />
+            </Container>
+            : <Loading />}
+        </div>
       </>
     </ThemeProvider>
   );
