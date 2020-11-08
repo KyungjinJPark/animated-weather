@@ -76,7 +76,6 @@ const ContentLoader = () => {
             ? <Container style={{
               position: "relative",
               height: "100%",
-              overflow: "hidden",
             }}>
               <Dashboard weatherData={weatherData} setTheme={setTheme} />
             </Container>

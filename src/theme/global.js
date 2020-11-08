@@ -12,4 +12,8 @@ export const GlobalStyles = createGlobalStyle`
   .clickable:hover {
     background-color: ${({ theme }) => theme.btnHoverCol};
   }
+  
+  .main-temperature {
+    color: ${({ theme }) => theme.temperatureCol};
+  }
 `;

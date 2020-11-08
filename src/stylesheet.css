@@ -12,9 +12,12 @@ html {
   position: absolute;
   width: 100%;
   top: 10%;
+  border-radius: 3em;
+  box-shadow: 0 0 10em -5em #010101;
+  overflow: hidden;
   
   /* debug */
-  border: 2px dashed orange;
+  /* border: 2px dashed orange; */
 }
 
 .change-button {
@@ -24,7 +27,7 @@ html {
   align-items: center;
   
   /* debug */
-  border: 2px dashed purple;
+  /* border: 2px dashed purple; */
 }
 
 .main-wrapper {
@@ -32,9 +35,10 @@ html {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 1em 0;
 
   /* debug */
-  border: 2px dashed red;
+  /* border: 2px dashed red; */
 }
 
 .main-title {
@@ -74,7 +78,7 @@ html {
   top: 75%;
 
   /* debug */
-  border: 2px dashed orange;
+  /* border: 2px dashed orange; */
 }
 
 .week-wrapper {
@@ -84,7 +88,7 @@ html {
   padding: 0.2em 0;
 
   /* debug */
-  border: 2px dashed purple;
+  /* border: 2px dashed purple; */
 }
 
 .week-wrapper::-webkit-scrollbar {
@@ -112,7 +116,7 @@ html {
   padding: 0.2em 1em;
 
   /* debug */
-  border: 2px dashed red;
+  /* border: 2px dashed red; */
 }
 
 .period-title {
