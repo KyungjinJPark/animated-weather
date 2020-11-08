@@ -24,17 +24,16 @@ const Dashboard = ({ weatherData, setTheme }) => {
     });
   }
 
-  const mainTransitions = useTransition(weatherData[index], item => item.name, {
+  const mainTransitions = useTransition(weatherData[index], {
     from: { opacity: 0, transform: "scale(1.1)" },
     enter: { opacity: 1, transform: "scale(1)" },
-    leave: { opacity: 0, transform: "scale(0.9)" }
+    leave: { opacity: 0, transform: "scale(0.9)" },
   });
 
   return <div className="dashboard">
-    {mainTransitions.map(({ item, props, key }) =>
+    {mainTransitions((values, item) =>
       <MainDisplay
-        // key={key}
-        passStyle={props}
+        passStyle={values}
         dayData={item}
         inc={() => incIndex(1)}
         dec={() => incIndex(-1)}
