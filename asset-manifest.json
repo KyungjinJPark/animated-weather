@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/KyungjinJPark/AnimatedWeather/static/css/main.194d2f0b.chunk.css",
-    "main.js": "/KyungjinJPark/AnimatedWeather/static/js/main.ec08f5a6.chunk.js",
-    "main.js.map": "/KyungjinJPark/AnimatedWeather/static/js/main.ec08f5a6.chunk.js.map",
-    "runtime-main.js": "/KyungjinJPark/AnimatedWeather/static/js/runtime-main.a5518513.js",
-    "runtime-main.js.map": "/KyungjinJPark/AnimatedWeather/static/js/runtime-main.a5518513.js.map",
-    "static/css/2.20aa2d7b.chunk.css": "/KyungjinJPark/AnimatedWeather/static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.0cd672a5.chunk.js": "/KyungjinJPark/AnimatedWeather/static/js/2.0cd672a5.chunk.js",
-    "static/js/2.0cd672a5.chunk.js.map": "/KyungjinJPark/AnimatedWeather/static/js/2.0cd672a5.chunk.js.map",
-    "index.html": "/KyungjinJPark/AnimatedWeather/index.html",
-    "static/css/2.20aa2d7b.chunk.css.map": "/KyungjinJPark/AnimatedWeather/static/css/2.20aa2d7b.chunk.css.map",
-    "static/css/main.194d2f0b.chunk.css.map": "/KyungjinJPark/AnimatedWeather/static/css/main.194d2f0b.chunk.css.map",
-    "static/js/2.0cd672a5.chunk.js.LICENSE.txt": "/KyungjinJPark/AnimatedWeather/static/js/2.0cd672a5.chunk.js.LICENSE.txt"
+    "main.css": "/AnimatedWeather/static/css/main.194d2f0b.chunk.css",
+    "main.js": "/AnimatedWeather/static/js/main.ec08f5a6.chunk.js",
+    "main.js.map": "/AnimatedWeather/static/js/main.ec08f5a6.chunk.js.map",
+    "runtime-main.js": "/AnimatedWeather/static/js/runtime-main.88db49ba.js",
+    "runtime-main.js.map": "/AnimatedWeather/static/js/runtime-main.88db49ba.js.map",
+    "static/css/2.20aa2d7b.chunk.css": "/AnimatedWeather/static/css/2.20aa2d7b.chunk.css",
+    "static/js/2.ef3d124f.chunk.js": "/AnimatedWeather/static/js/2.ef3d124f.chunk.js",
+    "static/js/2.ef3d124f.chunk.js.map": "/AnimatedWeather/static/js/2.ef3d124f.chunk.js.map",
+    "index.html": "/AnimatedWeather/index.html",
+    "static/css/2.20aa2d7b.chunk.css.map": "/AnimatedWeather/static/css/2.20aa2d7b.chunk.css.map",
+    "static/css/main.194d2f0b.chunk.css.map": "/AnimatedWeather/static/css/main.194d2f0b.chunk.css.map",
+    "static/js/2.ef3d124f.chunk.js.LICENSE.txt": "/AnimatedWeather/static/js/2.ef3d124f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a5518513.js",
+    "static/js/runtime-main.88db49ba.js",
     "static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.0cd672a5.chunk.js",
+    "static/js/2.ef3d124f.chunk.js",
     "static/css/main.194d2f0b.chunk.css",
     "static/js/main.ec08f5a6.chunk.js"
   ]
