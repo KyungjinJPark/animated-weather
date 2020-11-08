@@ -12,6 +12,10 @@ I think it would be cool to do some more complex, interactive, and creative anim
 
 There is a bit of working with REST APIs and using geolocation.
 
+
+### !! The production build has a bug !!
+There is some error that I believe has to do with `react-spring`. Therefore, production builds (including the `gh-pages` page), **but** if you *really* want to see the app, you're going to have to view the `npm start` test version... Sorry.
+
 ###### end of import things
 
 ---
