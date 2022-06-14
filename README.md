@@ -26,7 +26,6 @@ I think it would be cool to create some more complex, interactive, and creative 
 
 ## 📋 The TODO
 
-- index and css has to be placed in dist to begin with
 - index needs to import css since webpack cant handle css in src rn
 - where to place lotties/
 - lotties not connected. use `lottie-web` or its wrapper `react-lottie-player`
