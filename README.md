@@ -36,3 +36,12 @@ create babel and webpack config files
 write app code in src/
 user webpack-dev-server to check progress
 run webpack to build to dist
+
+---
+
+TODO
+index and css has to be placed in dist to begin with
+index needs to import css since webpack cant handle css in src rn
+where to place lotties/
+lotties not connected. use `lottie-web` or its wrapper `react-lottie-player`
+dragscroller not connected. use `react-scroll-ondrag`
