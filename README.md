@@ -1,6 +1,12 @@
-# Welcome to my domain
+# Animated Weather
 
-**In this project,** I created an app that displays the weather in your area.
+```Sales Pitch
+This app will tell you the weather in your area and display some fun animations created by yours truly.
+```
+
+ <!-- [See the working app!](https://kyungjinjpark.github.io/animated-weather/) -->
+
+## Project Overview
 
 I dipped my feet in the world of animations in React using `react-spring` as the animation library, and I also added a dark/light mode feature that changes depending on time period of the displayed weather. I added some ***cute*** animations of a snowman or sun that autoplays in the main display using Airbnb's `lottie`.
 
@@ -8,23 +14,18 @@ Lil cool feature of the app: the week display at the bottom is a drag scroll lis
 
 I think it would be cool to do some more complex, interactive, and creative animations using something like `animejs` down the road.
 
-> sadly, it actually has nothing to do with anime ... in case you were wondering.
-
 There is a bit of working with REST APIs and using geolocation.
 
-
 ### !! The production build has a bug !!
+
 There is some error that I believe has to do with `react-spring`. Therefore, production builds (including the `gh-pages` page), **but** if you *really* want to see the app, you're going to have to view the `npm start` test version... Sorry.
 
 It would be found [here](https://kyungjinjpark.github.io/animated-weather/) if it were working.
 
-###### end of import things
 
----
+## Learning Notes
 
-Thanks Jonah and Jonah's dad for introducing me to the weather.gov api.
-
-And thanks to me for my master After Effects skills and my designers eye *wink.
+- uh...
 
 ---
 
@@ -45,3 +46,29 @@ index needs to import css since webpack cant handle css in src rn
 where to place lotties/
 lotties not connected. use `lottie-web` or its wrapper `react-lottie-player`
 dragscroller not connected. use `react-scroll-ondrag`
+
+---
+
+GOALS
+refactor bad code & organization
+git it to work in prod
+get on gh-pages
+Reincorporate minimal branch (maybe seperate endpoint)  
+make app "better" w animations and features
+Dockerize app
+
+---
+
+RESOURCES
+API documentation :
+https://www.weather.gov/documentation/services-web-api
+https://weather-gov.github.io/api/general-faqs
+
+example request : 
+https://api.weather.gov/points/38.8894,-77.0352
+https://api.weather.gov/gridpoints/LWX/76,64/forecast
+https://api.weather.gov/gridpoints/LWX/96,70/forecast/hourly
+
+geolocation : https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
+
+colors : https://www.color-hex.com/color-palette/54458
