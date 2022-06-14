@@ -1,9 +1,12 @@
-import React, { useState } from "react";
-import { Row } from "react-bootstrap";
-// import ScrollContainer from "react-indiana-drag-scroll";
+import React, { useState, useRef } from "react";
+import { Container, Row } from "react-bootstrap";
+import useDragScroll from "react-scroll-ondrag";
 import { useSpring, animated } from "react-spring";
 
 const WeekDisplay = ({ weekData, index, setIndex }) => {
+  const containerRef = useRef(null)
+  const { events } = useDragScroll(containerRef);
+
   if (index < 2) {
     index = 2;
   }
@@ -12,11 +15,11 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
   }
 
   return <Row className="lower-display">
-    {/* <ScrollContainer className="week-wrapper" hideScrollbars={false}> */}
+    <Container {...events} ref={containerRef} className="week-wrapper">
       {weekData.map((periodData, i) =>
         <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} />
       )}
-    {/* </ScrollContainer> */}
+    </Container>
   </Row>
 }
 
