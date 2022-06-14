@@ -26,9 +26,6 @@ I think it would be cool to create some more complex, interactive, and creative 
 
 ## 📋 The TODO
 
-- index needs to import css since webpack cant handle css in src rn
-- where to place lotties/
-- lotties not connected. use `lottie-web` or its wrapper `react-lottie-player`
 - dragscroller not connected. use `react-scroll-ondrag`
 - refactor bad code & organization
 - git it to work in prod

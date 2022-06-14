@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { animated } from "react-spring";
-// import ColdLottie from "../lotties/ColdLottie";
-// import HotLottie from "../lotties/HotLottie";
+import ReactLottie from "react-lottie-player";
+
+import coldAnim from "./static/lotties/coldAnim.json";
+import hotAnim from "./static/lotties/hotAnim.json";
 
 const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
   const AnimatedRow = animated(Row);
@@ -12,7 +14,9 @@ const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
       <p>{"<<<"}</p>
     </Col>
     <Col xs={8} className="main-wrapper">
-      {/* {dayData.temperature > 60 ? <HotLottie /> : <ColdLottie />} */}
+      {dayData.temperature > 40
+        ? <Lottie json={hotAnim}/>
+        : <Lottie json={coldAnim}/>}
       <p className="main-title">{dayData.name.toUpperCase()}</p>
       <p className="main-temperature">{dayData.temperature}&deg;{dayData.temperatureUnit}</p>
       <p className="main-description">{dayData.shortForecast}</p>
@@ -22,6 +26,17 @@ const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
       <p>{">>>"}</p>
     </Col>
   </AnimatedRow >
+}
+
+const Lottie = ({json}) => {
+  return (
+    <ReactLottie
+      loop={false}
+      animationData={json}
+      play
+      style={{ width: '15em', height: '15em' }}
+    />
+  )
 }
 
 export default MainDisplay;

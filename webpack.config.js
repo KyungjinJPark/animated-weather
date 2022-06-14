@@ -1,7 +1,5 @@
 const path = require("path");
 
-console.log(path.resolve(__dirname, "src/index.js"));
-
 module.exports = {
   mode: "development",
   
@@ -41,6 +39,10 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      // { // Assets
+      //   test: /\.(json)$/i,
+      //   type: "asset/resource"
+      // },
     ],
   },
 };
