@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { dayTheme, nightTheme } from "./theme/themes";
 import { GlobalStyles } from "./theme/global"
 
-import Dashboard from "./Dashboard";
+// import Dashboard from "./Dashboard";
 
 const WEATHER_API = axios.create({
   baseURL: `https://api.weather.gov/`,
@@ -15,8 +15,29 @@ const ContentLoader = () => {
   const [usrCoords, setUsrCoords] = useState([false, -1, -1]); //containsValidValues, Latitude, Longitude
   const [weatherData, setWeatherData] = useState([]);
 
+  const fetchUserCoords = () => {
+    /**
+     * Working geolocation in javascript
+     * https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
+     */
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        console.log("USER data");
+        setUsrCoords([true, pos.coords.latitude, pos.coords.longitude]);
+        console.log("async fulfilled");
+      }, (err) => {
+        //TODO: something in case of error
+        console.log("location services not available");
+      });
+    } else {
+      console.log("DEFAULT data");
+      // default location: Washington, DC
+      setUsrCoords([true, 38.8892, -77.0506]);
+    }
+  }
+
   useEffect(() => {
-    getUserLat(); //async state set
+    fetchUserCoords(); //async state set
   }, [])
 
   useEffect(() => {
@@ -42,27 +63,6 @@ const ContentLoader = () => {
     }
   }, [usrCoords[0]]);
 
-  const getUserLat = () => {
-    /**
-     * Working geolocation in javascript
-     * https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
-     */
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((pos) => {
-        console.log("USER data");
-        setUsrCoords([true, pos.coords.latitude, pos.coords.longitude]);
-        console.log("async fulfilled");
-      }, (err) => {
-        //TODO: something in case of error
-        console.log("location services not available");
-      });
-    } else {
-      console.log("DEFAULT data");
-      // default location: Washington, DC
-      setUsrCoords([true, 38.8892, -77.0506]);
-    }
-  }
-
   // https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
   const [theme, setTheme] = useState("day");
 
@@ -77,7 +77,8 @@ const ContentLoader = () => {
               position: "relative",
               height: "100%",
             }}>
-              <Dashboard weatherData={weatherData} setTheme={setTheme} />
+              <p>{JSON.stringify(weatherData)}</p>
+              {/* <Dashboard weatherData={weatherData} setTheme={setTheme} /> */}
             </Container>
             : <Loading />}
         </div>

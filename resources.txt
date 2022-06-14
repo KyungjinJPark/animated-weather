@@ -12,3 +12,7 @@ geolocation : https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-
 colors : https://www.color-hex.com/color-palette/54458
 
 react bootstrap : https://react-bootstrap.github.io/components/cards/
+
+---
+
+https://medium.com/edonec/how-to-create-a-react-app-without-create-react-app-aa0b5adba4cd

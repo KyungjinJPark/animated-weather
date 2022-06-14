@@ -16,6 +16,8 @@ There is a bit of working with REST APIs and using geolocation.
 ### !! The production build has a bug !!
 There is some error that I believe has to do with `react-spring`. Therefore, production builds (including the `gh-pages` page), **but** if you *really* want to see the app, you're going to have to view the `npm start` test version... Sorry.
 
+It would be found [here](https://kyungjinjpark.github.io/animated-weather/) if it were working.
+
 ###### end of import things
 
 ---
@@ -23,3 +25,14 @@ There is some error that I believe has to do with `react-spring`. Therefore, pro
 Thanks Jonah and Jonah's dad for introducing me to the weather.gov api.
 
 And thanks to me for my master After Effects skills and my designers eye *wink.
+
+---
+
+Setting up React on my own:
+put index in dist
+install react and react-dom // TODO: difference?
+install (react hotloader => react fast refresh), babel, and webpack
+create babel and webpack config files
+write app code in src/
+user webpack-dev-server to check progress
+run webpack to build to dist
