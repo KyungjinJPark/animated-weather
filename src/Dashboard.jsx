@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTransition } from "react-spring";
 
-import "./stylesheet.css";
+// import "./stylesheet.css";
 import MainDisplay from "./MainDisplay";
 import WeekDisplay from "./WeekDisplay";
 

@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { dayTheme, nightTheme } from "./theme/themes";
 import { GlobalStyles } from "./theme/global"
 
-// import Dashboard from "./Dashboard";
+import Dashboard from "./Dashboard";
 
 const WEATHER_API = axios.create({
   baseURL: `https://api.weather.gov/`,
@@ -77,8 +77,7 @@ const ContentLoader = () => {
               position: "relative",
               height: "100%",
             }}>
-              <p>{JSON.stringify(weatherData)}</p>
-              {/* <Dashboard weatherData={weatherData} setTheme={setTheme} /> */}
+              <Dashboard weatherData={weatherData} setTheme={setTheme} />
             </Container>
             : <Loading />}
         </div>

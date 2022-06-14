@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Row, Col } from "react-bootstrap";
 import { animated } from "react-spring";
-import ColdLottie from "./bodymovins/ColdLottie";
-import HotLottie from "./bodymovins/HotLottie";
+// import ColdLottie from "../lotties/ColdLottie";
+// import HotLottie from "../lotties/HotLottie";
 
 const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
   const AnimatedRow = animated(Row);
@@ -12,7 +12,7 @@ const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
       <p>{"<<<"}</p>
     </Col>
     <Col xs={8} className="main-wrapper">
-      {dayData.temperature > 60 ? <HotLottie /> : <ColdLottie />}
+      {/* {dayData.temperature > 60 ? <HotLottie /> : <ColdLottie />} */}
       <p className="main-title">{dayData.name.toUpperCase()}</p>
       <p className="main-temperature">{dayData.temperature}&deg;{dayData.temperatureUnit}</p>
       <p className="main-description">{dayData.shortForecast}</p>
