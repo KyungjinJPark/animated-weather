@@ -11,9 +11,9 @@ html {
 .upper-display {
   position: absolute;
   width: 100%;
-  top: 10%;
+  top: 5%;
   border-radius: 3em;
-  box-shadow: 0 0 10em -5em #010101;
+  box-shadow: 0 0 10em -2em #010101;
   overflow: hidden;
   
   /* debug */
@@ -25,6 +25,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #010101;
   
   /* debug */
   /* border: 2px dashed purple; */
@@ -75,7 +76,7 @@ html {
 .lower-display {
   position: absolute;
   width: 100%;
-  top: 75%;
+  bottom: 5%;
 
   /* debug */
   /* border: 2px dashed orange; */
@@ -111,12 +112,18 @@ html {
 
 
 .period-wrapper {
-  min-width: 20%;
-  max-width: 20%;
-  padding: 0.2em 1em;
+  min-width: 10rem;
+  padding: 0.4rem 1rem; /* TODO: why does this make words (like WEDNESDAY) go outside the box */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   /* debug */
   /* border: 2px dashed red; */
+}
+
+.period-spacer {
+  min-width: 1rem;
 }
 
 .period-title {

@@ -26,7 +26,6 @@ I think it would be cool to create some more complex, interactive, and creative 
 
 ## 📋 The TODO
 
-- dragscroller not connected. use `react-scroll-ondrag`
 - refactor bad code & organization
 - git it to work in prod
 - get on gh-pages

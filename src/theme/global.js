@@ -9,6 +9,10 @@ export const GlobalStyles = createGlobalStyle`
     transition: all 0.2s linear;
   }
   
+  .change-button {
+    background-color: ${({ theme }) => theme.btnCol};
+  }
+
   .clickable:hover {
     background-color: ${({ theme }) => theme.btnHoverCol};
   }

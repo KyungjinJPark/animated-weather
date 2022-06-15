@@ -16,8 +16,16 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
 
   return <Row className="lower-display">
     <Container {...events} ref={containerRef} className="week-wrapper">
-      {weekData.map((periodData, i) =>
-        <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} />
+      {weekData.map((periodData, i) => {
+        if (i !== 0) {
+          return [
+            <div className="period-spacer" key={"spacer:" + i}></div>,
+            <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} />
+          ]
+        } else {
+          return <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} />
+        }
+      }
       )}
     </Container>
   </Row>
