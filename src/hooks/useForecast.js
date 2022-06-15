@@ -15,10 +15,8 @@ const useForecast = (coords) => {
       WEATHER_API.get(`points/${coords[0]},${coords[1]}`)
         .then((pointResp) => {
           let forecastURL = pointResp.data.properties.forecast;
-          console.log(forecastURL.split(".gov/")[1])
           WEATHER_API.get(forecastURL.split(".gov/")[1])
             .then((forecastResp) => {
-              console.log(forecastResp)
               setWeatherData(forecastResp.data.properties.periods);
               setStatus("Success");
               setMessage("Success");
