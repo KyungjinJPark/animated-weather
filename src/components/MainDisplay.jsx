@@ -3,8 +3,8 @@ import { Row, Col } from "react-bootstrap";
 import { animated } from "react-spring";
 import ReactLottie from "react-lottie-player";
 
-import coldAnim from "./static/lotties/coldAnim.json";
-import hotAnim from "./static/lotties/hotAnim.json";
+import coldAnim from "../static/lotties/coldAnim.json";
+import hotAnim from "../static/lotties/hotAnim.json";
 
 const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
   const AnimatedRow = animated(Row);

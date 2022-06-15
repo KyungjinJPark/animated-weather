@@ -1,6 +1,5 @@
 import React from "react";
-import "./stylesheet.css"
-import ContentLoader from "./ContentLoader";
+import ContentLoader from "./components/ContentLoader";
 
 const App = () => {
     return (< ContentLoader/>)

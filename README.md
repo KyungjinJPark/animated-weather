@@ -53,5 +53,6 @@ https://api.weather.gov/gridpoints/LWX/96,70/forecast/hourly
 geolocation:
 https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
 
-colors:
+theme-ing:
+https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
 https://www.color-hex.com/color-palette/54458
