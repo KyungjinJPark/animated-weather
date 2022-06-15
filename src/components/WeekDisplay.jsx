@@ -7,12 +7,7 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
   const containerRef = useRef(null)
   const { events } = useDragScroll(containerRef);
 
-  if (index < 2) {
-    index = 2;
-  }
-  else if (index > weekData.length - 3) {
-    index = weekData.length - 3;
-  }
+console.log(index);
 
   return <Row className="lower-display">
     <Container {...events} ref={containerRef} className="week-wrapper">
@@ -20,10 +15,10 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
         if (i !== 0) {
           return [
             <div className="period-spacer" key={"spacer:" + i}></div>,
-            <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} />
+            <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} selected={i === index}/>
           ]
         } else {
-          return <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} />
+          return <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} selected={i === index}/>
         }
       }
       )}
@@ -31,7 +26,7 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
   </Row>
 }
 
-const PeriodDisplay = ({ periodData, index, setIndex }) => {
+const PeriodDisplay = ({ periodData, index, setIndex, selected }) => {
   const [pressed, setPressed] = useState(false);
   const buttonProps = useSpring({
     transform: pressed ? "scale(0.95)" : "scale(1)",
@@ -43,7 +38,7 @@ const PeriodDisplay = ({ periodData, index, setIndex }) => {
   });
 
   return <animated.div
-    className="period-wrapper clickable"
+    className={"period-wrapper clickable" + (selected ? " selected" : "")} 
     onMouseDown={() => setPressed(true)}
     onMouseLeave={() => setPressed(false)}
     onClick={() => {

@@ -20,4 +20,8 @@ export const GlobalStyles = createGlobalStyle`
   .main-temperature {
     color: ${({ theme }) => theme.temperatureCol};
   }
+
+  .selected {
+    background-color: ${({ theme }) => theme.selectedCol};
+  }
 `;

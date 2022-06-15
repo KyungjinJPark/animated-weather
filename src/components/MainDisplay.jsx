@@ -25,7 +25,7 @@ const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
     <Col xs={2} className="change-button clickable" onClick={inc}>
       <p>{">>>"}</p>
     </Col>
-  </AnimatedRow >
+  </AnimatedRow>
 }
 
 const Lottie = ({json}) => {
