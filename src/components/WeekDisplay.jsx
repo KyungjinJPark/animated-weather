@@ -5,7 +5,14 @@ import { useSpring, animated } from "react-spring";
 
 const WeekDisplay = ({ weekData, index, setIndex }) => {
   const containerRef = useRef(null)
-  const { events } = useDragScroll(containerRef);
+  const dragging = useRef(false)
+  const { events } = useDragScroll(containerRef, { onDragStart: () => { dragging = true }, onDragEnd: () => { dragging = false } });
+
+  const setIndexIfNoDrag = (i) => {
+    if (!dragging) {
+      setIndex(i)
+    }
+  }
 
   return <Row className="lower-display">
     <Container {...events} ref={containerRef} className="week-wrapper">
@@ -13,10 +20,10 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
         if (i !== 0) {
           return [
             <div className="period-spacer" key={"spacer:" + i}></div>,
-            <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} selected={i === index}/>
+            <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndexIfNoDrag} selected={i === index}/>
           ]
         } else {
-          return <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndex} selected={i === index}/>
+          return <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndexIfNoDrag} selected={i === index}/>
         }
       }
       )}
