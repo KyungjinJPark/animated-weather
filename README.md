@@ -26,7 +26,6 @@ I think it would be cool to create some more complex, interactive, and creative 
 
 ## 📋 The TODO
 
-- git it to work in prod
 - get on gh-pages
 - reincorporate minimal branch (maybe seperate endpoint)  
 - make app "better" w animations and features
