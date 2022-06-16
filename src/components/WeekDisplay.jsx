@@ -5,13 +5,23 @@ import { useSpring, animated } from "react-spring";
 
 const WeekDisplay = ({ weekData, index, setIndex }) => {
   const containerRef = useRef(null)
-  const dragging = useRef(false)
-  const { events } = useDragScroll(containerRef, { onDragStart: () => { dragging = true }, onDragEnd: () => { dragging = false } });
+  const moved = useRef(0)
+  const lastMovedVal = useRef(0)
+  const { events } = useDragScroll(containerRef, {
+    onDragStart: () => {
+      moved.current = 0
+    },
+    runScroll: ({ dx, dy }) => {
+      moved.current += dx
+      containerRef.current.scrollLeft += dx
+    }
+  });
 
-  const setIndexIfNoDrag = (i) => {
-    if (!dragging) {
+  const setIndexIfNotScrolled = (i) => {
+    if (Math.abs(moved.current) < 150 || lastMovedVal.current === moved.current) {
       setIndex(i)
     }
+    lastMovedVal.current = moved.current
   }
 
   return <Row className="lower-display">
@@ -20,10 +30,10 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
         if (i !== 0) {
           return [
             <div className="period-spacer" key={"spacer:" + i}></div>,
-            <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndexIfNoDrag} selected={i === index}/>
+            <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndexIfNotScrolled} selected={i === index}/>
           ]
         } else {
-          return <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndexIfNoDrag} selected={i === index}/>
+          return <PeriodDisplay key={i} periodData={periodData} index={i} setIndex={setIndexIfNotScrolled} selected={i === index}/>
         }
       }
       )}
