@@ -4,7 +4,7 @@
 This app will tell you the weather in your area and display some fun animations created by yours truly.
 ```
 
- <!-- [See the working app!](https://kyungjinjpark.github.io/animated-weather/) -->
+🎉 [Check out the working app here!](https://kyungjinjpark.github.io/animated-weather/) 🎉
 
 ## Project Overview
 
@@ -12,13 +12,11 @@ Animated Weather will show you the forecast for the week in your area (given you
 
 I dipped my feet in the world of web animations using the `react-spring` animation library. I used `react-spring` to animate the transitions between weather displays among other smaller things. The *cute* sun and snowman animations are stored as something called `lottie` files. These are lightweight vector-based animations built for the web and developed by Airbnb. I also added a dark/light mode feature that changes depending on time period of the displayed weather.
 
-### ⚠ The Production Build has a Bug! ⚠
+## The Production Build
 
-The production build has some error that I believe has to do with `react-spring`. The end result is that the `gh-pages` page doesn't work. If you'd like to view the app for the time being, you're going to have to run the project in the development environment... Sorry.
+The working app is hosted [here](https://kyungjinjpark.github.io/animated-weather/) courtesy of GitHub pages. No more bug, no more downlaoding.
 
-It would be found [here](https://kyungjinjpark.github.io/animated-weather/) if it were working.
-
-### Looking Ahead
+## Looking Ahead
 
 I think it would be cool to create some more complex, interactive, and creative animations using `react-spring` or even some other libraries `animejs` down the road.
 
@@ -26,10 +24,9 @@ I think it would be cool to create some more complex, interactive, and creative 
 
 ## 📋 The TODO
 
-- get on gh-pages
+- dockerize app
 - reincorporate minimal branch (maybe seperate endpoint)  
 - make app "better" w animations and features
-- dockerize app
 
 ---
 
