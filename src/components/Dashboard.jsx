@@ -23,9 +23,9 @@ const Dashboard = ({ weatherData, setTheme }) => {
         return 0
       }
       if (weatherData.length <= newi) {
-        weatherData.length - 1;
+        return weatherData.length - 1;
       }
-      return old;
+      return newi;
     });
   }
 
