@@ -5,6 +5,11 @@ const WEATHER_API = axios.create({
   baseURL: `https://api.weather.gov/`, // TODO: maybe timeout
 });
 
+/**
+ * Attempt to fetch the forecast given a location in coordinates
+ * @param {number[]} coords 
+ * @returns {[Object[], {status: string, message: string}]}
+ */
 const useForecast = (coords) => {
   const [weatherData, setWeatherData] = useState([]);
   const [status, setStatus] = useState("Loading");

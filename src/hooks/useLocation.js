@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
 
+/**
+ * Attempt to fetch the user's location in lat + long coordinates
+ * @returns {[Number[], {status: String, message: String}]}
+ */
 const useLocation = () => {
   const [coords, setCoords] = useState([]);
   const [status, setStatus] = useState("Loading");
