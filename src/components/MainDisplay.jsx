@@ -10,7 +10,7 @@ const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
   const AnimatedRow = animated(Row);
 
   return <AnimatedRow className="upper-display" style={passStyle}>
-    <Col xs={2} className="change-button clickable" onClick={dec}>
+    <Col xs={2} className="change-button clickable unselectable" onClick={dec}>
       <p>{"<<<"}</p>
     </Col>
     <Col xs={8} className="main-wrapper">
@@ -22,7 +22,7 @@ const MainDisplay = ({ passStyle, dayData, inc, dec }) => {
       <p className="main-description">{dayData.shortForecast}</p>
       <p className="main-wind-speed">{dayData.windSpeed + " winds"}</p>
     </Col>
-    <Col xs={2} className="change-button clickable" onClick={inc}>
+    <Col xs={2} className="change-button clickable unselectable" onClick={inc}>
       <p>{">>>"}</p>
     </Col>
   </AnimatedRow>

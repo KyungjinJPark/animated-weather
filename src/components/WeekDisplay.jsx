@@ -7,8 +7,6 @@ const WeekDisplay = ({ weekData, index, setIndex }) => {
   const containerRef = useRef(null)
   const { events } = useDragScroll(containerRef);
 
-console.log(index);
-
   return <Row className="lower-display">
     <Container {...events} ref={containerRef} className="week-wrapper">
       {weekData.map((periodData, i) => {
@@ -38,7 +36,7 @@ const PeriodDisplay = ({ periodData, index, setIndex, selected }) => {
   });
 
   return <animated.div
-    className={"period-wrapper clickable" + (selected ? " selected" : "")} 
+    className={"period-wrapper clickable unselectable" + (selected ? " selected" : "")} 
     onMouseDown={() => setPressed(true)}
     onMouseLeave={() => setPressed(false)}
     onClick={() => {
