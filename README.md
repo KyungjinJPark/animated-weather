@@ -12,6 +12,8 @@ Animated Weather will show you the forecast for the week in your area (given you
 
 I dipped my feet in the world of web animations using the `react-spring` animation library. I used `react-spring` to animate the transitions between weather displays among other smaller things. The *cute* sun and snowman animations are stored as something called `lottie` files. These are lightweight vector-based animations built for the web and developed by Airbnb. I also added a dark/light mode feature that changes depending on time period of the displayed weather.
 
+I also performed a naive `Docker`ization of the app. Now I can deploy it with ease to AWS or AWS.
+
 ## The Production Build
 
 The working app is hosted [here](https://kyungjinjpark.github.io/animated-weather/) courtesy of GitHub pages. No more bug, no more downlaoding.
@@ -24,7 +26,6 @@ I think it would be cool to create some more complex, interactive, and creative 
 
 ## 📋 The TODO
 
-- dockerize app
 - reincorporate minimal branch (maybe seperate endpoint)  
 - make app "better" w animations and features
 
@@ -51,3 +52,6 @@ https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
 theme-ing:
 https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
 https://www.color-hex.com/color-palette/54458
+
+dockerizing:
+https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
